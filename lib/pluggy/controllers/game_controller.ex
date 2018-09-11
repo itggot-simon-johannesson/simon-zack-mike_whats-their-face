@@ -7,19 +7,23 @@ defmodule Pluggy.GameController do
   import Plug.Conn, only: [send_resp: 3]
 
 
-  def index(conn) do
+#   def index(conn) do
 
-    send_resp(conn, 200, render("games/game_one.html", []))
+#     send_resp(conn, 200, render("games/game_one.html", []))
 
-    # #get user if logged in
-    # session_user = conn.private.plug_session["user_id"]
-    # current_user = case session_user do
-    #   nil -> nil
-    #   _   -> User.get(session_user)
-    # end
+#     #get user if logged in
+#     session_user = conn.private.plug_session["user_id"]
+#     current_user = case session_user do
+#       nil -> nil
+#       _   -> User.get(session_user)
+#     end
 
-    # send_resp(conn, 200, render("fruits/index", fruits: Fruit.all(), user: current_user))
-  end
+#     send_resp(conn, 200, render("fruits/index", fruits: Fruit.all(), user: current_user))
+#   end
+
+  def game_one(conn), do: send_resp(conn, 200, render("games/game_one.html", []))
+
+  def game_two(conn), do: send_resp(conn, 200, render("games/game_two.html", []))
 
 #   def new(conn),          do: send_resp(conn, 200, render("fruits/new", []))
 #   def show(conn, id),     do: send_resp(conn, 200, render("fruits/show", fruit: Fruit.get(id)))
