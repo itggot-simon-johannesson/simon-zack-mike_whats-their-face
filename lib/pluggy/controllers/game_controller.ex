@@ -25,6 +25,8 @@ defmodule Pluggy.GameController do
 
   def game_two(conn), do: send_resp(conn, 200, render("games/game_two.html", []))
 
+  def game_three(conn), do: send_resp(conn, 200, render("games/game_three.html", []))
+
 #   def new(conn),          do: send_resp(conn, 200, render("fruits/new", []))
 #   def show(conn, id),     do: send_resp(conn, 200, render("fruits/show", fruit: Fruit.get(id)))
 #   def edit(conn, id),     do: send_resp(conn, 200, render("fruits/edit", fruit: Fruit.get(id)))
