@@ -3,6 +3,7 @@ defmodule Pluggy.Router do
 
   alias Pluggy.FruitController
   alias Pluggy.UserController
+  alias Pluggy.GameController
 
   plug Plug.Static, at: "/", from: :pluggy
   plug(:put_secret_key_base)
@@ -26,6 +27,8 @@ defmodule Pluggy.Router do
   get "/fruits/new",       do: FruitController.new(conn)
   get "/fruits/:id",       do: FruitController.show(conn, id)
   get "/fruits/:id/edit",  do: FruitController.edit(conn, id)
+
+  get "/game_one", do: GameController.index(conn)
   
   post "/fruits",          do: FruitController.create(conn, conn.body_params)
  
