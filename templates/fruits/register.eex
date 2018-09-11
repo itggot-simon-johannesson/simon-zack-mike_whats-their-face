@@ -1,0 +1,12 @@
+<div class="content">
+    <h1>Registrera användare</h1>
+    <div class="con_edit">
+        <h2>Förnamn</h2>
+        <h2>Efternamn</h2>
+        <h2>Lösenord</h2>
+        <div class="con_password">
+            <h4>Lösenord</h4>
+            <h4>Repitera lösenord</h4>
+        </div>
+    </div>
+</div>

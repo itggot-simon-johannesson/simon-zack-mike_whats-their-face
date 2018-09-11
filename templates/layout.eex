@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Welcome to Pluggy</title>
+	<title>Guess their face!</title>
 	<link rel="stylesheet" type="text/css" href="/pluggy.css">
+	<meta charset="UTF-8">
 </head>
 <body>
-	<%= template %>
+	<div class="container">
+		<%= template %>
+	</div>
 </body>
 </html>
