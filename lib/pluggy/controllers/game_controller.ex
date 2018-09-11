@@ -9,7 +9,7 @@ defmodule Pluggy.GameController do
 
   def index(conn) do
 
-    send_resp(conn, 200, render("games/game_one", []))
+    send_resp(conn, 200, render("games/game_one.html", []))
 
     # #get user if logged in
     # session_user = conn.private.plug_session["user_id"]
