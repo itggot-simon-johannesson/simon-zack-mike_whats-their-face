@@ -73,3 +73,8 @@ body {
 	position:relative;
 	top:1px;
 }
+
+.game_end {
+	display: flex;
+	flex-direction: column;
+}

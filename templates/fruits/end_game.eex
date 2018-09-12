@@ -1,0 +1,7 @@
+<div class="game_end">
+    <h1>Grattis!</h1>
+    <h2>Du klarade spelet</h2>
+    <h3>Antal Rätt: </h3>
+    <h3>Antal Fel: </h3>
+</div>
+
