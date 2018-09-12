@@ -7,7 +7,17 @@
 </head>
 <body>
 	<div class="container">
-		<%= template %>
+		<div class="content">
+			<div class="welcome">
+				<h1>Guess Their Face</h1>
+			</div>
+			<div class="nav">
+			</div>
+			<form action="/users/logout" method="post">
+				<button class="login_button" type="submit">Logga Ut</button>
+			</form>
+			<%= template %>
+		</div>
 	</div>
 </body>
 </html>
