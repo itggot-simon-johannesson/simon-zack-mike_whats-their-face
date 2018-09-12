@@ -7,11 +7,10 @@
 			<div class="card-body">
 				<form method="post">
 					<div class="form-group">
-						<label for="guess">Your guess</label>
-						<button type="button" class="btn btn-primary">Alfred Jansson</button>
-						<button type="button" class="btn btn-primary">Jasmine Svensson</button>
-						<button type="button" class="btn btn-primary">August Björk</button>
-						<button type="button" class="btn btn-primary">Felix Sjöstedt</button>
+						<h3>Your guess</h3>
+						<%= for name <- names do %>
+						<button type="submit" name="<%= name.id %>" class="btn btn-primary"><%= name.firstname %> <%= name.lastname %></button>
+						<% end %>
 					</div>
 				</form>
 			</div>

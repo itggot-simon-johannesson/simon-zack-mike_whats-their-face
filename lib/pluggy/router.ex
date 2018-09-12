@@ -28,7 +28,7 @@ defmodule Pluggy.Router do
   get "/fruits/:id",       do: FruitController.show(conn, id)
   get "/fruits/:id/edit",  do: FruitController.edit(conn, id)
 
-  get "/game_one", do: GameController.game_one(conn)
+  get "/game_one", do: GameController.show_game_one(conn)
   get "/game_two", do: GameController.game_two(conn)
   get "/game_three", do: GameController.game_three(conn)
   

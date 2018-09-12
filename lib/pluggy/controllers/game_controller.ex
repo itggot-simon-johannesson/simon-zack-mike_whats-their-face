@@ -22,6 +22,10 @@ defmodule Pluggy.GameController do
 #     send_resp(conn, 200, render("fruits/index", fruits: Fruit.all(), user: current_user))
 #   end
 
+  def show_game_one(conn) do
+    send_resp(conn, 200, render("games/game_one.html", names: Game.get("1A")))
+  end
+
   def game_one(conn) do
   
   send_resp(conn, 200, render("games/game_one.html", []))

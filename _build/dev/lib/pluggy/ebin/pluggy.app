@@ -3,7 +3,7 @@
                              postgrex]},
               {description,"pluggy"},
               {modules,['Elixir.Pluggy','Elixir.Pluggy.Fruit',
-                        'Elixir.Pluggy.FruitController',
+                        'Elixir.Pluggy.FruitController','Elixir.Pluggy.Game',
                         'Elixir.Pluggy.GameController','Elixir.Pluggy.Router',
                         'Elixir.Pluggy.Supervisor','Elixir.Pluggy.Template',
                         'Elixir.Pluggy.User','Elixir.Pluggy.UserController']},
