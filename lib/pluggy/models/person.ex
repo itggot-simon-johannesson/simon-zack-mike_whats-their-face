@@ -1,39 +1,39 @@
 defmodule Pluggy.Person do
 
-    @db_collumns = ["id", "firstname", "lastname", "photo"]
-    
+    defstruct id: nil, firstname: "", lastname: "", photo: ""
+    @db_datatypes %{"id" => "integer", "firstname" => "string", "lastname" => "string", "photo" => "string"}
+
     #GET
     def get() do
-        Postgrex.query!(DB, "SELECT * FROM person", [], [pool: DBConnection.Poolboy]).rows
+        Postgrex.query!(DB, "SELECT * FROM public.user", [], [pool: DBConnection.Poolboy]).rows
         |> response
     end
 
     def get(params) do
-        
-        case @data_type_fruits["#{params["column"]}"] == "integer" do
-        true -> 
-            Postgrex.query!(DB, "SELECT * FROM person WHERE #{params["column"]} = $1", [String.to_integer(params["value"])], [pool: DBConnection.Poolboy]).rows
-        false -> 
-            Postgrex.query!(DB, "SELECT * FROM person WHERE #{params["column"]} = $1", [params["value"]], [pool: DBConnection.Poolboy]).rows
+        case @db_datatypes["#{params["column"]}"] == "integer" do
+            true -> 
+                Postgrex.query!(DB, "SELECT * FROM person WHERE #{params["column"]} = $1", [String.to_integer(params["value"])], [pool: DBConnection.Poolboy]).rows
+            false -> 
+                Postgrex.query!(DB, "SELECT * FROM person WHERE #{params["column"]} = $1", [params["value"]], [pool: DBConnection.Poolboy]).rows
         end
-        |> response
+       |> response
     end
 
-    def get(params = %{"max_amount" => _}) do
-        Postgrex.query!(DB, "SELECT * FROM person WHERE #{params["column"]} = $1 LIMIT #{max_amount}", [params["value"]], [pool: DBConnection.Poolboy]).rows
-        |> response
-    end
+    # def get(params = %{"max_amount" => _}) do
+    #     Postgrex.query!(DB, "SELECT * FROM person WHERE #{params["column"]} = $1 LIMIT #{params["max_amount"]}", [params["value"]], [pool: DBConnection.Poolboy]).rows
+    #     |> response
+    # end
     #GET END
 
     #CREATE
     def create(params) do
-        Postgrex.query!(DB, "INSERT INTO person (#{@db_collumns.}) VALUES ($1, $2)", [params["fruit"], String.to_integer(params["score"])], [pool: DBConnection.Poolboy])
+        Postgrex.query!(DB, "INSERT INTO person (#{@db_datatypes.keys}) VALUES ($1, $2)", [params["fruit"], String.to_integer(params["score"])], [pool: DBConnection.Poolboy])
     end
     #CREATE END
 
     #DELETE
     def delete(params) do
-        case @data_type_fruits["#{params["column"]}"] == "integer" do
+        case @db_datatypes["#{params["column"]}"] == "integer" do
         true -> 
             Postgrex.query!(DB, "DELETE FROM fruits WHERE #{params["column"]} = $1", [String.to_integer(params["value"])], [pool: DBConnection.Poolboy])
         false -> 
@@ -43,7 +43,7 @@ defmodule Pluggy.Person do
     #DELETE END
 
     defp response(rows) do
-        Enum.reduce(rows, [], fn([id, name, tastiness], acc) -> [ %Servy.Fruits{id: id, name: name, tastiness: tastiness} | acc] end )
+        Enum.reduce(rows, [], fn([id, firstname, lastname, photo], acc) -> [ %Pluggy.Person{id: id, firstname: firstname, lastname: lastname, photo: photo} | acc] end )
     end
 
 
