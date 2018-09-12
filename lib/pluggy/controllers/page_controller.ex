@@ -10,6 +10,10 @@ defmodule Pluggy.PageController do
     def index(conn) do
       send_resp(conn, 200, render("fruits/login", []))
     end
+
+    def register(conn) do
+      send_resp(conn, 200, render("fruits/register", []))
+    end
   
 #     def new(conn),          do: send_resp(conn, 200, render("fruits/new", []))
 #     def show(conn, id),     do: send_resp(conn, 200, render("fruits/show", fruit: Fruit.get(id)))

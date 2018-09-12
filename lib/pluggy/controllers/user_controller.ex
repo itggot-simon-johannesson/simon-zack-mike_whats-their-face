@@ -37,13 +37,19 @@ defmodule Pluggy.UserController do
 		|> redirect("/fruits")
 	end
 
-	# def create(conn, params) do
-	# 	#pseudocode
-	# 	# in db table users with password_hash CHAR(60)
-	# 	# hashed_password = Bcrypt.hash_pwd_salt(params["password"])
-    #  	# Postgrex.query!(DB, "INSERT INTO users (username, password_hash) VALUES ($1, $2)", [params["username"], hashed_password], [pool: DBConnection.Poolboy])
-    #  	# redirect(conn, "/fruits")
-	# end
+	def create(conn, params) do
+		if params["pwd"] == params["re_pwd"] do
+			hashed_password = Bcrypt.hash_pwd_salt(params["pwd"])
+			Postgrex.query!(DB, "INSERT INTO public.user (mail, username, password) VALUES ($1, $2, $3)", [params["mail"], params["username"], hashed_password], [pool: DBConnection.Poolboy])
+			#pseudocode
+			# in db table users with password_hash CHAR(60)
+			# hashed_password = Bcrypt.hash_pwd_salt(params["password"])
+				# Postgrex.query!(DB, "INSERT INTO users (username, password_hash) VALUES ($1, $2)", [params["username"], hashed_password], [pool: DBConnection.Poolboy])
+			redirect(conn, "/login")
+		else
+			redirect(conn, "/fruit")
+		end
+	end
 
 	defp redirect(conn, url), do: Plug.Conn.put_resp_header(conn, "location", url) |> send_resp(303, "")
 end
