@@ -73,3 +73,8 @@ body {
 	position:relative;
 	top:1px;
 }
+
+#nav_link {
+	font-size: 2em;
+	margin-bottom: 30px;
+}

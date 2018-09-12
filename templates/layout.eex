@@ -12,6 +12,9 @@
 				<h1>Guess Their Face</h1>
 			</div>
 			<div class="nav">
+				<a id="nav_link" href="/games">Spel</a>
+				<a id="nav_link" href="/list">Lista</a>
+				<a id="nav_link" href="/account">Konto</a>
 			</div>
 			<form action="/users/logout" method="post">
 				<button class="login_button" type="submit">Logga Ut</button>
