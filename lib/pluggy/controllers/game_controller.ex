@@ -26,6 +26,10 @@ defmodule Pluggy.GameController do
     send_resp(conn, 200, render("games/game_one.html", names: Game.get("1A")))
   end
 
+  def show_game_two(conn) do
+    send_resp(conn, 200, render("games/game_two.html", names: Game.get("1A")))
+  end
+
   def game_one(conn) do
   
   send_resp(conn, 200, render("games/game_one.html", []))

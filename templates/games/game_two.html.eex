@@ -9,10 +9,9 @@
 				<form method="post">
 					<div class="form-group">
 						<h3>Click on the right image</h3>
-						<button type="button" class="btn btn-primary"><img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap"></button>
-						<button type="button" class="btn btn-primary"><img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap"></button>
-						<button type="button" class="btn btn-primary"><img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap"></button>
-						<button type="button" class="btn btn-primary"><img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap"></button>
+						<%= for name <- names do %>
+						<button type="button" class="btn btn-primary"><img class="card-img-top" src="<%= name.photo %>" alt="Card image cap"></button>
+						<% end %>
 					</div>
 				</form>
 			</div>
