@@ -10,24 +10,23 @@ defmodule Pluggy.UserController do
 	def login(conn, params) do
 		username = params["username"]
 		password = params["pwd"]
-
 		result =
-		  Postgrex.query!(DB, "SELECT id, password_hash FROM users WHERE username = $1", [username],
+		  Postgrex.query!(DB, "SELECT id, password FROM public.user WHERE username = $1", [username],
 		    pool: DBConnection.Poolboy
 		  )
 
 		case result.num_rows do
 		  0 -> #no user with that username
-		    redirect(conn, "/fruits")
+				redirect(conn, "/login")
 		  _ -> #user with that username exists
 		    [[id, password_hash]] = result.rows
 
 		    #make sure password is correct
 		    if Bcrypt.verify_pass(password, password_hash) do
 		      Plug.Conn.put_session(conn, :user_id, id)
-		      |>redirect("/fruits")
+					|>redirect("/login")
 		    else
-		      redirect(conn, "/fruits")
+					redirect(conn, "/login")
 		    end
 		end
 	end
