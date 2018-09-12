@@ -2,6 +2,7 @@ defmodule Pluggy.GameController do
   
   require IEx
 
+  alias Pluggy.Game
   # alias Pluggy.User
   import Pluggy.Template, only: [render: 2]
   import Plug.Conn, only: [send_resp: 3]
@@ -21,7 +22,11 @@ defmodule Pluggy.GameController do
 #     send_resp(conn, 200, render("fruits/index", fruits: Fruit.all(), user: current_user))
 #   end
 
-  def game_one(conn), do: send_resp(conn, 200, render("games/game_one.html", []))
+  def game_one(conn) do
+  
+  send_resp(conn, 200, render("games/game_one.html", []))
+
+  end
 
   def game_two(conn), do: send_resp(conn, 200, render("games/game_two.html", []))
 
