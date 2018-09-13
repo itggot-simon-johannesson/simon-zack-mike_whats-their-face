@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Welcome to Pluggy</title>
+	<title>Guess their face!</title>
 	<link rel="stylesheet" type="text/css" href="/pluggy.css">
+	<meta charset="UTF-8">
 </head>
 <body>
-	<%= template %>
+	<div class="container">
+		<div class="content">
+			<div class="welcome">
+				<h1>Guess Their Face</h1>
+			</div>
+			<div class="nav">
+				<a id="nav_link" class="nav_button" href="/#">Spel</a>
+				<a id="nav_link" class="nav_button" href="/#">Lista</a>
+				<a id="nav_link" class="nav_button" href="/#">Konto</a>
+			</div>
+			<form action="/users/logout" method="post">
+				<button class="login_button" type="submit">Logga Ut</button>
+			</form>
+			<%= template %>
+		</div>
+	</div>
 </body>
 </html>
