@@ -4,7 +4,7 @@
 }
 
 body {
-	background-color: peachpuff;
+	background-color: rgb(224, 224, 224);
 }
 
 .container {
@@ -77,5 +77,11 @@ body {
 .game_end {
 	display: flex;
 	flex-direction: column;
+	justify-content:center;
+	align-items:center;
 	background-color: white;
+	padding-bottom: 50px;
+	padding-top: 50px;
+	border-radius: 25px;
+	margin-top: 50px;
 }
