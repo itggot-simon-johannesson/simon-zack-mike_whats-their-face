@@ -11,23 +11,18 @@ defmodule Pluggy.Person do
 
     def get(params) do
         case @db_datatypes["#{params["column"]}"] == "integer" do
-            true -> 
-                Postgrex.query!(DB, "SELECT * FROM person WHERE #{params["column"]} = $1", [String.to_integer(params["value"])], [pool: DBConnection.Poolboy]).rows
-            false -> 
-                Postgrex.query!(DB, "SELECT * FROM person WHERE #{params["column"]} = $1", [params["value"]], [pool: DBConnection.Poolboy]).rows
+        true -> 
+            Postgrex.query!(DB, "SELECT * FROM person WHERE #{params["column"]} = $1", [String.to_integer(params["value"])], [pool: DBConnection.Poolboy]).rows
+        false -> 
+            Postgrex.query!(DB, "SELECT * FROM person WHERE #{params["column"]} = $1", [params["value"]], [pool: DBConnection.Poolboy]).rows
         end
        |> response
     end
-
-    # def get(params = %{"max_amount" => _}) do
-    #     Postgrex.query!(DB, "SELECT * FROM person WHERE #{params["column"]} = $1 LIMIT #{params["max_amount"]}", [params["value"]], [pool: DBConnection.Poolboy]).rows
-    #     |> response
-    # end
     #GET END
 
     #CREATE
     def create(params) do
-        Postgrex.query!(DB, "INSERT INTO person (#{@db_datatypes.keys}) VALUES ($1, $2)", [params["fruit"], String.to_integer(params["score"])], [pool: DBConnection.Poolboy])
+        Postgrex.query!(DB, "INSERT INTO person (firstname, lastname, photo) VALUES ($1, $2, $3)", [params["firstname"], params["lastname"], params["photo"]], [pool: DBConnection.Poolboy])
     end
     #CREATE END
 
@@ -35,9 +30,9 @@ defmodule Pluggy.Person do
     def delete(params) do
         case @db_datatypes["#{params["column"]}"] == "integer" do
         true -> 
-            Postgrex.query!(DB, "DELETE FROM fruits WHERE #{params["column"]} = $1", [String.to_integer(params["value"])], [pool: DBConnection.Poolboy])
+            Postgrex.query!(DB, "DELETE FROM person WHERE #{params["column"]} = $1", [String.to_integer(params["value"])], [pool: DBConnection.Poolboy])
         false -> 
-            Postgrex.query!(DB, "DELETE FROM fruits WHERE #{params["column"]} = $1", [params["value"]], [pool: DBConnection.Poolboy])
+            Postgrex.query!(DB, "DELETE FROM person WHERE #{params["column"]} = $1", [params["value"]], [pool: DBConnection.Poolboy])
         end
     end
     #DELETE END

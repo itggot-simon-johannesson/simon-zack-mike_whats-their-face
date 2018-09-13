@@ -5,9 +5,9 @@
               {modules,['Elixir.Pluggy','Elixir.Pluggy.Fruit',
                         'Elixir.Pluggy.FruitController','Elixir.Pluggy.List',
                         'Elixir.Pluggy.ListController','Elixir.Pluggy.Person',
-                        'Elixir.Pluggy.Router','Elixir.Pluggy.Supervisor',
-                        'Elixir.Pluggy.Template','Elixir.Pluggy.User',
-                        'Elixir.Pluggy.UserController']},
+                        'Elixir.Pluggy.PersonList','Elixir.Pluggy.Router',
+                        'Elixir.Pluggy.Supervisor','Elixir.Pluggy.Template',
+                        'Elixir.Pluggy.User','Elixir.Pluggy.UserController']},
               {registered,[]},
               {vsn,"0.1.0"},
               {mod,{'Elixir.Pluggy',[]}}]}.
