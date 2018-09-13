@@ -14,7 +14,7 @@
 			<div class="nav">
 				<a id="nav_link" class="nav_button" href="/#">Spel</a>
 				<a id="nav_link" class="nav_button" href="/#">Lista</a>
-				<a id="nav_link" class="nav_button" href="/#">Konto</a>
+				<a id="nav_link" class="nav_button" href="/user/:id">Konto</a>
 			</div>
 			<form action="/users/logout" method="post">
 				<button class="login_button" type="submit">Logga Ut</button>
