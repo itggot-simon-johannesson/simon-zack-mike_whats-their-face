@@ -31,6 +31,7 @@ defmodule Pluggy.Router do
   get "/login",            do: PageController.index(conn)
   get "/register",         do: PageController.register(conn)
   get "/end_game",         do: PageController.end_game(conn)
+  get "/user",             do: PageController.user(conn)
   
   post "/fruits",          do: FruitController.create(conn, conn.body_params)
  
