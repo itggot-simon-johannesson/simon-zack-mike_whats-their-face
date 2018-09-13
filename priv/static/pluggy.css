@@ -24,11 +24,12 @@ body {
 }
 
 .con_login {
-	background-color: #b3e5fb;
+	background-color: #999999;
 	width: 700px;
 	height: 500px;
 	padding-top: 20px;
 	padding-left: 15px;
+	border-radius: 15px;
 }
 
 #header_margin {
