@@ -30,10 +30,8 @@ defmodule Pluggy.GameController do
     send_resp(conn, 200, render("games/game_two.html", names: Game.get("1A")))
   end
 
-  def game_one(conn) do
-  
-  send_resp(conn, 200, render("games/game_one.html", []))
-
+  def game_one(conn) do 
+    send_resp(conn, 200, render("games/game_one.html", []))
   end
 
   def game_two(conn), do: send_resp(conn, 200, render("games/game_two.html", []))
@@ -61,8 +59,8 @@ defmodule Pluggy.GameController do
 #     redirect(conn, "/fruits")
 #   end
 
-#   defp redirect(conn, url) do
-#     Plug.Conn.put_resp_header(conn, "location", url) |> send_resp(303, "")
-#   end
+  #  defp redirect(conn, url) do
+  #    Plug.Conn.put_resp_header(conn, "location", url) |> send_resp(303, "")
+  #  end
 
 end

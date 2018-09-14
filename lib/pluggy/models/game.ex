@@ -9,11 +9,32 @@ defmodule Pluggy.Game do
 	# 	|> to_struct_list
 	# end
 
+	# def get_one(name) do
+	# 	Postgrex.query!(DB, "SELECT * FROM public.person WHERE public.person.id IN (SELECT public.person_list.person_id FROM public.person_list WHERE public.person_list.list_id IN (SELECT public.list.id FROM public.list WHERE public.list.name = $1))", [name], [pool: DBConnection.Poolboy]).rows
+	# 	|> to_struct_list
+	# 	|> Enum.random
+	# end
+
 	def get(name) do
 		Postgrex.query!(DB, "SELECT * FROM public.person WHERE public.person.id IN (SELECT public.person_list.person_id FROM public.person_list WHERE public.person_list.list_id IN (SELECT public.list.id FROM public.list WHERE public.list.name = $1))", [name], [pool: DBConnection.Poolboy]).rows
 		|> to_struct_list
-		|> Enum.take_random(4)
 	end
+
+	# defp add_points() do
+		
+	# end
+
+	# def check_answer(params) do
+	# 	session_all_names = conn.private.plug_session["user_id"]
+	# 	all_names = case session_all_names do
+	# 		nil -> nil
+	# 		_ 	-> session_all_names
+	# 	end
+	# 	cond do
+	# 		params["name_id"] == params["guess"] -> 
+	# 			all_names
+	# 	end		
+	# end
 
 	# def update(id, params) do
 	# 	name = params["name"]
