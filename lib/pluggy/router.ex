@@ -3,7 +3,6 @@ defmodule Pluggy.Router do
 
   alias Pluggy.FruitController
   alias Pluggy.UserController
-  alias Pluggy.GameController
   alias Pluggy.PageController
 
   plug Plug.Static, at: "/", from: :pluggy
@@ -28,12 +27,6 @@ defmodule Pluggy.Router do
   get "/fruits/new",       do: FruitController.new(conn)
   get "/fruits/:id",       do: FruitController.show(conn, id)
   get "/fruits/:id/edit",  do: FruitController.edit(conn, id)
-
-  get "/game_one", do: GameController.show_game_one(conn)
-  get "/game_two", do: GameController.show_game_two(conn)
-  get "/game_three", do: GameController.game_three(conn)
-
-  post "/game_two", do: GameController.show_game_two(conn)
   # ---NEW---
   get "/login",            do: PageController.index(conn)
   get "/register",         do: PageController.register(conn)
