@@ -1,0 +1,41 @@
+<% 
+# Get four random persons from list
+cards = Enum.take_random(names, 4)
+random_name = Enum.random(cards)
+%{:id => id, :firstname => firstname, :lastname => lastname, :photo => photo} = random_name
+
+# Get one random person and pattern match it to get the values from that person
+#%{:id => id, :firstname => firstname, :lastname => lastname, :photo => photo} = Enum.random(names)
+
+# Get four random cards including the one for the random name
+#cards = Enum.take_random(names, 3)
+#random_name = %{:id => id, :firstname => firstname, :lastname => lastname, :photo => photo}
+#cards = List.insert_at(cards, Enum.random(1..4), random_name)
+#cards = Enum.uniq(cards)
+# List.insert_at(cards, Enum.random(1..4), [%{:id => id, :firstname => firstname, :lastname => lastname, :photo => photo}])
+#IO.inspect cards
+
+%>
+
+
+<div class="container">
+	<div class="row justify-content-center">
+		<h1>Four Pictur, One Name</h1>
+	</div>
+	<div class="row justify-content-center">
+		<div class="card" style="width: 50rem;"> 
+            <h3><%= firstname %> <%= lastname %></h3>
+			<div class="card-body">
+				<form method="post" action="/game_two">
+					<input type="hidden" name="name_id" value="<%= id %>">
+					<div class="form-group">
+						<h3>Click on the right image</h3>
+						<%= for card <- cards do %>
+						<button type="submit" name="guess" value="<%= card.id %>" class="btn btn-primary"><img class="card-img-top" src="<%= card.photo %>" alt="Card image cap"></button>
+						<% end %>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

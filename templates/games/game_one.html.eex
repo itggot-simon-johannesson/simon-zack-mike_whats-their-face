@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="row justify-content-center">
+		<h1>One Picture, Four Names</h1>
+	</div>
+	<div class="row justify-content-center">
+		<div class="card" style="width: 50rem;"> <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
+			<div class="card-body">
+				<form method="post">
+					<div class="form-group">
+						<h3>Your guess</h3>
+						<%= for name <- names do %>
+						<button type="submit" name="<%= name.id %>" class="btn btn-primary"><%= name.firstname %> <%= name.lastname %></button>
+						<% end %>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
