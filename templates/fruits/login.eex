@@ -1,0 +1,29 @@
+<div class="content">
+	<div class="welcome">
+		<h2>Welcome to </h2>
+		<br>
+		<h1>Guess Their Face</h1>
+	</div>
+
+	<div class="con_login">
+		<h2 id="header_margin">Logga in</h2>
+		<div class="login_form">
+			<%# <%= if user do %>
+				<form action="/users/logout" method="post">
+					<button type="submit">Log Out</button>
+				</form>
+			<%# <% else %>
+
+			<form action="/users/login" method="post">
+				<label for="username">Användarnamn</label>
+				<input type="text" name="username" id="username" />
+				<br>
+				<label for="password">Lösenord</label>
+				<input type="password" name="pwd" id="password" />
+				<br>
+				<button class="login_button" type="submit">Log In</button>
+			</form>
+			<%# <% end %>
+		</div>
+	</div>
+</div>

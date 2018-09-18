@@ -1,0 +1,18 @@
+<div class="content">
+    <h1>Registrera användare</h1>
+    <form action="/users/register" method="post">
+        <label for="username">Användarnamn</label>
+        <input type="text" name="username" id="username" />
+        <br>
+        <label for="mail">Mail</label>
+        <input type="email" name="mail" id="mail" />
+        <br>
+        <label for="password">Lösenord</label>
+        <input type="password" name="pwd" id="password" />
+        <br>
+        <label for="re_password">Repitera lösenord</label>
+        <input type="password" name="re_pwd" id="re_password" />
+        <br>
+        <button class="login_button" type="submit">Registrera</button>
+    </form>
+</div>
